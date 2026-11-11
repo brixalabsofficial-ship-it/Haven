@@ -217,7 +217,66 @@ export const HomePage: React.FC = () => {
         <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#083D2E_1px,transparent_1px)] [background-size:24px_24px]" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-2 sm:pt-4">
-          <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-4 sm:mb-10">
+          {/* Single-Item Animated Slider for Property Icons (Placed on Top) */}
+          <div className="w-full max-w-md mx-auto mb-5 px-2">
+            <AnimatePresence mode="wait">
+              {(() => {
+                const current = heroIconsList[heroIconIndex];
+                const Icon = current.icon;
+                return (
+                  <motion.div
+                    key={current.label}
+                    initial={{ opacity: 0, y: -10, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.96 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    onClick={() => {
+                      setSelectedCategory(current.category as any);
+                      navigate(`/explore?category=${encodeURIComponent(current.category)}`);
+                    }}
+                    className="flex items-center justify-between bg-white border border-gray-200/90 hover:border-primary/50 shadow-sm hover:shadow-md px-3.5 sm:px-4 py-2 rounded-full cursor-pointer transition-all active:scale-98 group mx-auto"
+                  >
+                    <div className="flex items-center gap-2.5 sm:gap-3">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-gold transition-colors shrink-0 shadow-2xs">
+                        <Icon size={16} />
+                      </div>
+                      <div className="text-left">
+                        <span className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-primary transition-colors block leading-tight">
+                          {current.label}
+                        </span>
+                        <span className="text-[10px] text-gray-500 font-medium">
+                          {current.tag}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] sm:text-[11px] font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full group-hover:bg-gold group-hover:text-primary transition-colors shrink-0">
+                        {current.count}
+                      </span>
+                      <ChevronRight size={14} className="text-gray-400 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                    </div>
+                  </motion.div>
+                );
+              })()}
+            </AnimatePresence>
+
+            {/* Slider Dots */}
+            <div className="flex items-center justify-center gap-1.5 mt-2">
+              {heroIconsList.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setHeroIconIndex(idx)}
+                  className={`h-1.5 rounded-full transition-all ${
+                    idx === heroIconIndex ? 'w-5 bg-primary' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-4 sm:mb-8">
             {/* Clean, Bold Heading */}
             <motion.h1 
               initial={{ opacity: 0, y: 15 }}
@@ -265,65 +324,6 @@ export const HomePage: React.FC = () => {
                 <span>100% Direct Contact</span>
               </div>
             </motion.div>
-          </div>
-
-          {/* Single-Item Animated Slider for Property Icons */}
-          <div className="w-full max-w-md mx-auto my-3 px-4">
-            <AnimatePresence mode="wait">
-              {(() => {
-                const current = heroIconsList[heroIconIndex];
-                const Icon = current.icon;
-                return (
-                  <motion.div
-                    key={current.label}
-                    initial={{ opacity: 0, y: 12, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -12, scale: 0.95 }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                    onClick={() => {
-                      setSelectedCategory(current.category as any);
-                      navigate(`/explore?category=${encodeURIComponent(current.category)}`);
-                    }}
-                    className="flex items-center justify-between bg-white border border-gray-200/90 hover:border-primary/50 shadow-sm hover:shadow-md px-4 py-2.5 rounded-full cursor-pointer transition-all active:scale-98 group mx-auto"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-gold transition-colors shrink-0 shadow-2xs">
-                        <Icon size={18} />
-                      </div>
-                      <div className="text-left">
-                        <span className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-primary transition-colors block leading-tight">
-                          {current.label}
-                        </span>
-                        <span className="text-[10px] text-gray-500 font-medium">
-                          {current.tag}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full group-hover:bg-gold group-hover:text-primary transition-colors shrink-0">
-                        {current.count}
-                      </span>
-                      <ChevronRight size={14} className="text-gray-400 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
-                    </div>
-                  </motion.div>
-                );
-              })()}
-            </AnimatePresence>
-
-            {/* Slider Dots */}
-            <div className="flex items-center justify-center gap-1.5 mt-2">
-              {heroIconsList.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setHeroIconIndex(idx)}
-                  className={`h-1.5 rounded-full transition-all ${
-                    idx === heroIconIndex ? 'w-5 bg-primary' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Slide ${idx + 1}`}
-                />
-              ))}
-            </div>
           </div>
 
           {/* Prominent Search Component (Visible on Both Mobile & Desktop) */}
