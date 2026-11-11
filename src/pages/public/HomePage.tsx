@@ -190,19 +190,19 @@ export const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-20 pb-20">
-      {/* 1. HERO SECTION (FULL SCREEN ON MOBILE & CLEAN, MINIMAL & IMPACTFUL) */}
-      <section className="relative min-h-[calc(100vh-64px)] md:min-h-0 flex flex-col justify-center pt-8 pb-14 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 bg-[#F8F8F8] overflow-hidden border-b border-gray-100">
+    <div className="space-y-12 sm:space-y-20 pb-20">
+      {/* 1. HERO SECTION (CLEAN & COMPACT ON MOBILE) */}
+      <section className="relative pt-6 pb-8 sm:pt-14 sm:pb-16 md:pt-20 md:pb-20 bg-[#F8F8F8] overflow-hidden border-b border-gray-100">
         {/* Subtle decorative background accents */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#083D2E_1px,transparent_1px)] [background-size:24px_24px]" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full my-auto">
-          <div className="text-center max-w-3xl mx-auto space-y-4 sm:space-y-5 mb-6 sm:mb-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+          <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-4 sm:mb-10">
             {/* Clean, Bold Heading */}
             <motion.h1 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.15] text-center"
             >
               Find Your{' '}
@@ -210,17 +210,17 @@ export const HomePage: React.FC = () => {
                 Next Home
                 <span className="absolute bottom-1 left-0 w-full h-[3px] sm:h-[3.5px] bg-gold rounded-full" />
               </span>
-              <span className="block text-xl sm:text-3xl md:text-4xl font-semibold text-gray-700 mt-2 sm:mt-2.5 px-2 text-center">
+              <span className="block text-xl sm:text-3xl md:text-4xl font-semibold text-gray-700 mt-1.5 sm:mt-2.5 px-2 text-center">
                 Without Broker Exploitation.
               </span>
             </motion.h1>
             
             {/* Simple Subtitle */}
             <motion.p 
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-              className="text-sm sm:text-base md:text-lg text-gray-600 font-normal max-w-2xl mx-auto leading-relaxed"
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              className="text-xs sm:text-base md:text-lg text-gray-600 font-normal max-w-2xl mx-auto leading-relaxed"
             >
               Discover verified student hostels, PG stays, shared rooms, and flats. Connect directly on WhatsApp with zero brokerage fees.
             </motion.p>
@@ -229,18 +229,18 @@ export const HomePage: React.FC = () => {
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-              className="pt-1 flex items-center justify-center gap-2 sm:gap-3 text-xs text-gray-600 font-medium flex-wrap"
+              transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+              className="pt-1 flex items-center justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs text-gray-600 font-medium flex-wrap"
             >
-              <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
+              <div className="flex items-center gap-1.5 bg-white px-2.5 py-1 sm:px-3 sm:py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>15+ Active Hubs</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
+              <div className="flex items-center gap-1.5 bg-white px-2.5 py-1 sm:px-3 sm:py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
                 <span className="w-2 h-2 bg-gold rounded-full shrink-0" />
                 <span>₹49 Flat Unlock</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
+              <div className="flex items-center gap-1.5 bg-white px-2.5 py-1 sm:px-3 sm:py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
                 <span className="w-2 h-2 bg-primary rounded-full shrink-0" />
                 <span>100% Direct Contact</span>
               </div>
@@ -249,23 +249,23 @@ export const HomePage: React.FC = () => {
 
           {/* Hero Action Buttons on Mobile */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
-            className="md:hidden flex flex-col sm:flex-row items-center justify-center gap-3 pt-3 max-w-sm mx-auto w-full px-4"
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            className="md:hidden flex flex-row items-center justify-center gap-2.5 pt-1 max-w-sm mx-auto w-full px-2"
           >
             <Link
               to="/explore"
-              className="w-full bg-primary hover:bg-primary-hover text-white font-bold text-sm py-3.5 px-6 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all active:scale-98"
+              className="flex-1 bg-primary hover:bg-primary-hover text-white font-bold text-xs py-2.5 px-4 rounded-lg shadow-sm flex items-center justify-center gap-1.5 transition-all active:scale-98"
             >
-              <Search size={17} className="text-gold" />
+              <Search size={14} className="text-gold" />
               <span>Explore Stays</span>
             </Link>
             <Link
               to="/broker/dashboard"
-              className="w-full bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 font-semibold text-sm py-3 px-6 rounded-xl shadow-xs flex items-center justify-center gap-2 transition-all active:scale-98"
+              className="flex-1 bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 font-semibold text-xs py-2.5 px-4 rounded-lg shadow-2xs flex items-center justify-center gap-1.5 transition-all active:scale-98"
             >
-              <Building2 size={16} className="text-gold" />
+              <Building2 size={14} className="text-gold" />
               <span>List Property</span>
             </Link>
           </motion.div>
@@ -384,11 +384,11 @@ export const HomePage: React.FC = () => {
 
       {/* 2. ACCOMMODATION CATEGORIES (REDESIGNED: VISUAL CARDS + BALANCED 4x2 GRID) */}
       <motion.section 
-        initial={{ opacity: 0, y: 35 }}
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.15 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 sm:mt-0"
       >
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
