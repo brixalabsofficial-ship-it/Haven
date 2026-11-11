@@ -191,257 +191,73 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="space-y-20 pb-20">
-      {/* 1. HERO SECTION (SPLIT 2-COLUMN WITH DYNAMIC RIGHT SHOWCASE & ANIMATIONS) */}
-      <section className="relative pt-6 pb-12 sm:pt-10 sm:pb-16 md:pt-14 md:pb-20 bg-[#F8F8F8] overflow-hidden border-b border-gray-100">
-        {/* Subtle decorative architectural background accents with smooth floating animations */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.035] bg-[radial-gradient(#083D2E_1px,transparent_1px)] [background-size:24px_24px]" />
+      {/* 1. HERO SECTION (CLEAN, MINIMAL & IMPACTFUL) */}
+      <section className="relative pt-6 pb-10 sm:pt-12 sm:pb-16 md:pt-16 md:pb-20 bg-[#F8F8F8] overflow-hidden border-b border-gray-100">
+        {/* Subtle decorative background accents */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#083D2E_1px,transparent_1px)] [background-size:24px_24px]" />
         
-        {/* Ambient floating geometric accents */}
-        <motion.div 
-          animate={{ 
-            x: [0, 20, 0], 
-            y: [0, -15, 0],
-            rotate: [0, 4, 0]
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-16 -left-16 w-64 sm:w-80 h-64 sm:h-80 rounded-full bg-primary/[0.03] border border-primary/10 pointer-events-none" 
-        />
-        <motion.div 
-          animate={{ 
-            x: [0, -25, 0], 
-            y: [0, 20, 0],
-            rotate: [0, -6, 0]
-          }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 -right-20 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-gold/[0.04] border border-gold/15 pointer-events-none" 
-        />
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-          {/* TOP SPLIT: Left Headline & Value Proposition, Right Eye-catching Animated Showcase Graphic */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center mb-6 lg:mb-10">
-            {/* Left Column: Heading, Subtext, Live Stats */}
-            <div className="lg:col-span-7 text-center lg:text-left space-y-3.5 sm:space-y-4">
-              {/* Animated Heading with Slide-in & Drawing Underline */}
-              <motion.h1 
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.15]"
-              >
-                Find Your{' '}
-                <span className="text-primary relative inline-block">
-                  Next Home
-                  <motion.span 
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 0.5, ease: "easeInOut" }}
-                    className="absolute bottom-1 left-0 w-full h-[3px] sm:h-[3.5px] bg-gold rounded-full origin-left" 
-                  />
-                </span>
-                <span className="block text-xl sm:text-3xl md:text-4xl font-semibold text-gray-700 mt-1 sm:mt-1.5">
-                  Without Broker Exploitation.
-                </span>
-              </motion.h1>
-              
-              {/* Animated Subtitle */}
-              <motion.p 
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="text-xs sm:text-base md:text-lg text-gray-600 font-normal max-w-xl mx-auto lg:mx-0 leading-relaxed"
-              >
-                Discover curated student hostels, working professional PG stays, shared accommodations, and flats with verified landlords. Connect directly on WhatsApp with zero hidden brokerage.
-              </motion.p>
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 sm:mb-10">
+            {/* Clean, Bold Heading */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.15]"
+            >
+              Find Your{' '}
+              <span className="text-primary relative inline-block">
+                Next Home
+                <span className="absolute bottom-1 left-0 w-full h-[3px] sm:h-[3.5px] bg-gold rounded-full" />
+              </span>
+              <span className="block text-xl sm:text-3xl md:text-4xl font-semibold text-gray-700 mt-1 sm:mt-1.5">
+                Without Broker Exploitation.
+              </span>
+            </motion.h1>
+            
+            {/* Simple Subtitle */}
+            <motion.p 
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+              className="text-sm sm:text-base md:text-lg text-gray-600 font-normal max-w-2xl mx-auto leading-relaxed"
+            >
+              Discover verified student hostels, PG stays, shared rooms, and flats. Connect directly on WhatsApp with zero brokerage fees.
+            </motion.p>
 
-              {/* Quick Live Stats Pill Row with Live Pulse Indicators */}
-              <motion.div 
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                className="pt-0.5 flex items-center justify-center lg:justify-start gap-2 sm:gap-3 text-[11px] sm:text-xs text-gray-600 font-medium flex-wrap"
-              >
-                <div className="flex items-center gap-1.5 bg-white px-2.5 py-1 sm:px-3 sm:py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span>15+ Active Hubs</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-white px-2.5 py-1 sm:px-3 sm:py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
-                  <span className="w-2 h-2 bg-gold rounded-full shrink-0" />
-                  <span>₹49 Flat Unlock</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-white px-2.5 py-1 sm:px-3 sm:py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
-                  <span className="w-2 h-2 bg-primary rounded-full shrink-0" />
-                  <span>100% Direct Contact</span>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Right Column: Visual Showcase Card with Haven Logo Emblem & Floating Badges */}
-            <div className="lg:col-span-5 relative flex items-center justify-center pt-2 sm:pt-4 lg:pt-0">
-              {/* Subtle ambient rotating architectural orbits behind the card */}
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] border border-dashed border-gold/25 rounded-full pointer-events-none"
-              />
-              <motion.div 
-                animate={{ rotate: -360 }}
-                transition={{ duration: 75, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[310px] h-[310px] sm:w-[420px] sm:h-[420px] border border-primary/10 rounded-full pointer-events-none"
-              />
-
-              {/* Floating Badge 1 (Top-Left of Visual): Haven Verified Logo Card */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                animate={{ 
-                  opacity: 1, 
-                  scale: 1,
-                  y: [-4, 4, -4]
-                }}
-                transition={{ 
-                  opacity: { duration: 0.6, delay: 0.3 },
-                  scale: { duration: 0.6, delay: 0.3 },
-                  y: { duration: 4.8, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute -top-4 sm:-top-3.5 left-1 sm:-left-6 bg-white/95 backdrop-blur-md p-1.5 sm:p-2.5 border border-gray-200/90 shadow-elevated z-30 rounded-lg flex items-center gap-1.5 sm:gap-2 max-w-[150px] sm:max-w-[210px]"
-              >
-                <div className="w-6 h-6 sm:w-9 sm:h-9 bg-primary flex items-center justify-center shrink-0 rounded-md text-white shadow-xs">
-                  <Home size={13} className="text-gold sm:w-4 sm:h-4" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-[8px] sm:text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Haven Verified</span>
-                  </div>
-                  <span className="text-[10px] sm:text-xs font-bold text-gray-900 leading-tight block">100% Direct Stays</span>
-                </div>
-              </motion.div>
-
-              {/* Floating Badge 2 (Bottom-Right of Visual): Positioned so it NEVER overlaps the footer or Direct button */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                animate={{ 
-                  opacity: 1, 
-                  scale: 1,
-                  y: [4, -4, 4]
-                }}
-                transition={{ 
-                  opacity: { duration: 0.6, delay: 0.4 },
-                  scale: { duration: 0.6, delay: 0.4 },
-                  y: { duration: 5.2, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute top-24 sm:top-auto sm:-bottom-3.5 -right-2 sm:-right-6 bg-white/95 backdrop-blur-md p-1.5 sm:p-2.5 border border-gray-200/90 shadow-elevated z-30 rounded-lg flex items-center gap-1.5 sm:gap-2 max-w-[155px] sm:max-w-[220px]"
-              >
-                <div className="w-6 h-6 sm:w-9 sm:h-9 bg-gold/20 text-gold-dark flex items-center justify-center shrink-0 font-extrabold text-[11px] sm:text-sm rounded-md">
-                  ₹49
-                </div>
-                <div>
-                  <span className="text-[8px] sm:text-[10px] font-bold text-primary uppercase tracking-wider block">One-Time Unlock</span>
-                  <span className="text-[10px] sm:text-xs font-bold text-gray-900 leading-tight block">Direct WhatsApp</span>
-                </div>
-              </motion.div>
-
-              {/* Main Showcase Property Card */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-                whileHover={{ y: -4 }}
-                className="relative bg-white border border-gray-200/90 shadow-elevated rounded-lg overflow-hidden max-w-[310px] sm:max-w-[360px] w-full transition-all duration-300 z-20"
-              >
-                {/* Property Hero Image with Overlay Badges */}
-                <div className="relative h-36 sm:h-48 overflow-hidden bg-gray-100 group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" 
-                    alt="Featured Haven Stay"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-                  
-                  {/* Category & Rating Badges */}
-                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                    <span className="px-2 py-0.5 bg-primary text-white text-[10px] font-bold uppercase tracking-wider rounded-sm shadow-xs flex items-center gap-1">
-                      <ShieldCheck size={12} className="text-gold" />
-                      Verified
-                    </span>
-                    <span className="px-2 py-0.5 bg-white/95 backdrop-blur-xs text-gray-800 text-[10px] font-bold rounded-sm shadow-xs flex items-center gap-1">
-                      <Star size={11} className="fill-gold text-gold" />
-                      4.9
-                    </span>
-                  </div>
-
-                  {/* Rent Pill */}
-                  <div className="absolute bottom-2.5 right-2.5 bg-white px-2.5 py-1 rounded-sm shadow-md flex items-baseline gap-1">
-                    <span className="text-xs font-bold text-gray-900">₹6,800</span>
-                    <span className="text-[10px] text-gray-500 font-medium">/mo</span>
-                  </div>
-                </div>
-
-                {/* Card Content Details */}
-                <div className="p-3.5 sm:p-4 space-y-2.5 sm:space-y-3">
-                  <div>
-                    <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-gold-dark font-semibold uppercase tracking-wider mb-0.5">
-                      <span>Executive PG & Stays</span>
-                      <span className="text-emerald-600 font-bold">● Available</span>
-                    </div>
-                    <h3 className="font-bold text-gray-900 text-xs sm:text-base leading-snug">
-                      Greenwood Living Executive Suites
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-gray-500 flex items-center gap-1 mt-0.5">
-                      <MapPin size={11} className="text-gold shrink-0" />
-                      <span className="truncate">Near NIT Campus & Kakkanad Infopark</span>
-                    </p>
-                  </div>
-
-                  {/* Amenity tags */}
-                  <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-gray-600 pt-1 border-t border-gray-100 flex-wrap">
-                    <span className="inline-flex items-center gap-1 bg-gray-50 px-1.5 py-0.5 rounded-sm border border-gray-200/60">
-                      <Wifi size={10} className="text-primary" /> Wi-Fi
-                    </span>
-                    <span className="inline-flex items-center gap-1 bg-gray-50 px-1.5 py-0.5 rounded-sm border border-gray-200/60">
-                      <Utensils size={10} className="text-primary" /> Meals
-                    </span>
-                  </div>
-
-                  {/* Card Micro Footer */}
-                  <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <img 
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" 
-                        alt="Broker"
-                        className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border border-primary/20"
-                      />
-                      <div>
-                        <span className="text-[11px] sm:text-xs font-bold text-gray-900 block leading-none">Muhammed Nihal</span>
-                        <span className="text-[9px] sm:text-[10px] text-gray-400 block leading-tight mt-0.5">Verified Local Broker</span>
-                      </div>
-                    </div>
-                    <Link
-                      to="/explore"
-                      className="px-2.5 py-1 bg-gold/15 hover:bg-gold/25 text-gold-dark border border-gold/30 rounded-md text-[11px] sm:text-xs font-bold transition-colors flex items-center gap-1 shadow-2xs"
-                    >
-                      <MessageCircle size={11} />
-                      <span>Direct</span>
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+            {/* Clean 3 Trust Badges */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
+              className="pt-1 flex items-center justify-center gap-2 sm:gap-3 text-xs text-gray-600 font-medium flex-wrap"
+            >
+              <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>15+ Active Hubs</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
+                <span className="w-2 h-2 bg-gold rounded-full shrink-0" />
+                <span>₹49 Flat Unlock</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 border border-gray-200/80 rounded-md shadow-2xs">
+                <span className="w-2 h-2 bg-primary rounded-full shrink-0" />
+                <span>100% Direct Contact</span>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Prominent Search Component with Framer Motion entry & subtle interaction */}
+          {/* Prominent Search Component */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
-            className="max-w-4xl mx-auto bg-white p-2.5 sm:p-4 shadow-elevated border border-gray-200/90 rounded-lg relative"
+            className="max-w-4xl mx-auto bg-white p-3 sm:p-4 shadow-elevated border border-gray-200/90 rounded-lg relative"
           >
-            <form onSubmit={handleHeroSearch} className="grid grid-cols-1 md:grid-cols-4 gap-2.5 sm:gap-3">
+            <form onSubmit={handleHeroSearch} className="grid grid-cols-1 md:grid-cols-4 gap-3">
               {/* Location */}
-              <div className="p-2 sm:p-2.5 bg-gray-50/70 border border-gray-200 hover:border-primary/40 focus-within:border-primary transition-all rounded-md">
-                <label className="block text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-0.5 sm:mb-1">
+              <div className="p-2.5 bg-gray-50/70 border border-gray-200 hover:border-primary/40 focus-within:border-primary transition-all rounded-md">
+                <label className="block text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1">
                   Location / City
                 </label>
                 <div className="flex items-center gap-2">
@@ -451,14 +267,14 @@ export const HomePage: React.FC = () => {
                     value={searchLocation}
                     onChange={(e) => setSearchLocation(e.target.value)}
                     placeholder="e.g. Kozhikode, Kakkanad..."
-                    className="w-full bg-transparent text-xs sm:text-sm font-medium text-gray-900 focus:outline-none placeholder:text-gray-400"
+                    className="w-full bg-transparent text-sm font-medium text-gray-900 focus:outline-none placeholder:text-gray-400"
                   />
                 </div>
               </div>
 
               {/* Property Category */}
-              <div className="p-2 sm:p-2.5 bg-gray-50/70 border border-gray-200 hover:border-primary/40 focus-within:border-primary transition-all rounded-md">
-                <label className="block text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-0.5 sm:mb-1">
+              <div className="p-2.5 bg-gray-50/70 border border-gray-200 hover:border-primary/40 focus-within:border-primary transition-all rounded-md">
+                <label className="block text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1">
                   Property Category
                 </label>
                 <div className="flex items-center gap-2">
@@ -466,7 +282,7 @@ export const HomePage: React.FC = () => {
                   <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value as any)}
-                    className="w-full bg-transparent text-xs sm:text-sm font-medium text-gray-900 focus:outline-none cursor-pointer"
+                    className="w-full bg-transparent text-sm font-medium text-gray-900 focus:outline-none cursor-pointer"
                   >
                     <option value="All">All Categories</option>
                     <option value="Hostels">Hostels</option>
@@ -481,16 +297,16 @@ export const HomePage: React.FC = () => {
               </div>
 
               {/* Monthly Budget */}
-              <div className="p-2 sm:p-2.5 bg-gray-50/70 border border-gray-200 hover:border-primary/40 focus-within:border-primary transition-all rounded-md">
-                <label className="block text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-0.5 sm:mb-1">
+              <div className="p-2.5 bg-gray-50/70 border border-gray-200 hover:border-primary/40 focus-within:border-primary transition-all rounded-md">
+                <label className="block text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1">
                   Monthly Budget
                 </label>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs sm:text-sm font-bold text-gold">₹</span>
+                  <span className="text-sm font-bold text-gold">₹</span>
                   <select
                     value={maxBudget}
                     onChange={(e) => setMaxBudget(e.target.value)}
-                    className="w-full bg-transparent text-xs sm:text-sm font-medium text-gray-900 focus:outline-none cursor-pointer"
+                    className="w-full bg-transparent text-sm font-medium text-gray-900 focus:outline-none cursor-pointer"
                   >
                     <option value="5000">Under ₹5,000</option>
                     <option value="8000">Under ₹8,000</option>
@@ -508,7 +324,7 @@ export const HomePage: React.FC = () => {
                   whileHover={{ scale: 1.015 }}
                   whileTap={{ scale: 0.985 }}
                   type="submit"
-                  className="w-full h-full min-h-[44px] sm:min-h-[50px] bg-primary hover:bg-primary-hover text-white font-semibold text-xs sm:text-sm transition-all shadow-md flex items-center justify-center gap-2 hover:shadow-lg rounded-md"
+                  className="w-full h-full min-h-[46px] sm:min-h-[50px] bg-primary hover:bg-primary-hover text-white font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-2 hover:shadow-lg rounded-md"
                 >
                   <Search size={16} className="text-gold" />
                   <span>Explore Properties</span>
@@ -517,12 +333,12 @@ export const HomePage: React.FC = () => {
             </form>
           </motion.div>
 
-          {/* Popular Searches with Staggered Interactive Pills */}
+          {/* Popular Searches */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-4 sm:mt-6 flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap text-[11px] sm:text-xs text-gray-500"
+            className="mt-4 sm:mt-6 flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap text-xs text-gray-500"
           >
             <span className="font-semibold text-gray-700">Popular Searches:</span>
             {['NIT Calicut Hostels', 'Girls PG Ramanattukara', 'Kochi Infopark Shared Room', 'Calicut Beach Flats'].map((term) => (
