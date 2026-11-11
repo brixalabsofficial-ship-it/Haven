@@ -15,7 +15,7 @@ export const MobileBottomBar: React.FC = () => {
   };
 
   return (
-    <nav className="md:hidden fixed bottom-3 left-3 right-3 z-50 bg-white/75 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_0_rgba(8,61,46,0.14)] p-1.5 flex items-center justify-around transition-all rounded-[10px]">
+    <nav className="md:hidden fixed bottom-6 left-4 right-4 z-50 bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_10px_35px_0_rgba(8,61,46,0.16)] p-1.5 flex items-center justify-around transition-all rounded-[12px]">
       {/* Home */}
       <Link
         to="/"
