@@ -191,12 +191,12 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="space-y-12 sm:space-y-20 pb-20">
-      {/* 1. HERO SECTION (CLEAN & COMPACT ON MOBILE) */}
-      <section className="relative pt-6 pb-8 sm:pt-14 sm:pb-16 md:pt-20 md:pb-20 bg-[#F8F8F8] overflow-hidden border-b border-gray-100">
+      {/* 1. HERO SECTION (CLEAN WITH SPACIOUS TOP FROM NAVBAR) */}
+      <section className="relative pt-12 pb-10 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 bg-[#F8F8F8] overflow-hidden border-b border-gray-100">
         {/* Subtle decorative background accents */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#083D2E_1px,transparent_1px)] [background-size:24px_24px]" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-2 sm:pt-4">
           <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-4 sm:mb-10">
             {/* Clean, Bold Heading */}
             <motion.h1 
