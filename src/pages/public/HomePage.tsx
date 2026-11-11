@@ -249,12 +249,35 @@ export const HomePage: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Prominent Search Component */}
+          {/* Hero Action Buttons on Mobile */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+            className="md:hidden flex flex-col sm:flex-row items-center justify-center gap-3 pt-3 max-w-sm mx-auto w-full px-4"
+          >
+            <Link
+              to="/explore"
+              className="w-full bg-primary hover:bg-primary-hover text-white font-bold text-sm py-3.5 px-6 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all active:scale-98"
+            >
+              <Search size={17} className="text-gold" />
+              <span>Explore Stays</span>
+            </Link>
+            <Link
+              to="/broker/dashboard"
+              className="w-full bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 font-semibold text-sm py-3 px-6 rounded-xl shadow-xs flex items-center justify-center gap-2 transition-all active:scale-98"
+            >
+              <Building2 size={16} className="text-gold" />
+              <span>List Property</span>
+            </Link>
+          </motion.div>
+
+          {/* Prominent Search Component (Visible on Desktop / Tablets) */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
-            className="max-w-4xl mx-auto bg-white p-3 sm:p-4 shadow-elevated border border-gray-200/90 rounded-lg relative"
+            className="hidden md:block max-w-4xl mx-auto bg-white p-3 sm:p-4 shadow-elevated border border-gray-200/90 rounded-lg relative"
           >
             <form onSubmit={handleHeroSearch} className="grid grid-cols-1 md:grid-cols-4 gap-3">
               {/* Location */}
@@ -335,12 +358,12 @@ export const HomePage: React.FC = () => {
             </form>
           </motion.div>
 
-          {/* Popular Searches */}
+          {/* Popular Searches (Desktop) */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-4 sm:mt-6 flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap text-xs text-gray-500"
+            className="hidden md:flex mt-4 sm:mt-6 items-center justify-center gap-1.5 sm:gap-2 flex-wrap text-xs text-gray-500"
           >
             <span className="font-semibold text-gray-700">Popular Searches:</span>
             {['NIT Calicut Hostels', 'Girls PG Ramanattukara', 'Kochi Infopark Shared Room', 'Calicut Beach Flats'].map((term) => (
