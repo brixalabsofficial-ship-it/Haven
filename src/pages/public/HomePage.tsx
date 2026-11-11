@@ -247,35 +247,61 @@ export const HomePage: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Hero Action Buttons on Mobile */}
+          {/* Animated Property Type Icons Floating Slider / Strip */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-            className="md:hidden flex flex-row items-center justify-center gap-2.5 pt-1 max-w-sm mx-auto w-full px-2"
+            transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
+            className="w-full overflow-hidden py-3 mb-3"
           >
-            <Link
-              to="/explore"
-              className="flex-1 bg-primary hover:bg-primary-hover text-white font-bold text-xs py-2.5 px-4 rounded-lg shadow-sm flex items-center justify-center gap-1.5 transition-all active:scale-98"
-            >
-              <Search size={14} className="text-gold" />
-              <span>Explore Stays</span>
-            </Link>
-            <Link
-              to="/broker/dashboard"
-              className="flex-1 bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 font-semibold text-xs py-2.5 px-4 rounded-lg shadow-2xs flex items-center justify-center gap-1.5 transition-all active:scale-98"
-            >
-              <Building2 size={14} className="text-gold" />
-              <span>List Property</span>
-            </Link>
+            <div className="flex items-center justify-center gap-3 sm:gap-6 flex-wrap">
+              {[
+                { label: 'Hostels', icon: Building2, count: '12+' },
+                { label: 'PG Stays', icon: Bed, count: '18+' },
+                { label: 'Shared Rooms', icon: Users, count: '8+' },
+                { label: 'Private Rooms', icon: Key, count: '14+' },
+                { label: 'Flats & BHKs', icon: Layers, count: '25+' },
+                { label: 'Villas & Houses', icon: Home, count: '6+' },
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.label}
+                    animate={{
+                      y: [0, idx % 2 === 0 ? -5 : 5, 0],
+                    }}
+                    transition={{
+                      duration: 3 + (idx % 3),
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    onClick={() => {
+                      setSelectedCategory(item.label.split(' ')[0] as any);
+                      navigate(`/explore?category=${encodeURIComponent(item.label.split(' ')[0])}`);
+                    }}
+                    className="flex items-center gap-2 bg-white/90 hover:bg-white border border-gray-200/90 hover:border-primary/40 px-3 py-1.5 rounded-full shadow-2xs cursor-pointer transition-all active:scale-95 group"
+                  >
+                    <div className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-gold transition-colors">
+                      <Icon size={13} />
+                    </div>
+                    <span className="text-xs font-semibold text-gray-700 group-hover:text-primary transition-colors">
+                      {item.label}
+                    </span>
+                    <span className="text-[10px] font-bold text-gold-dark bg-gold/15 px-1.5 py-0.2 rounded-full">
+                      {item.count}
+                    </span>
+                  </motion.div>
+                );
+              })}
+            </div>
           </motion.div>
 
-          {/* Prominent Search Component (Visible on Desktop / Tablets) */}
+          {/* Prominent Search Component (Visible on Both Mobile & Desktop) */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
-            className="hidden md:block max-w-4xl mx-auto bg-white p-3 sm:p-4 shadow-elevated border border-gray-200/90 rounded-lg relative"
+            className="block max-w-4xl mx-auto bg-white p-3.5 sm:p-4 shadow-elevated border border-gray-200/90 rounded-xl relative"
           >
             <form onSubmit={handleHeroSearch} className="grid grid-cols-1 md:grid-cols-4 gap-3">
               {/* Location */}
@@ -347,7 +373,7 @@ export const HomePage: React.FC = () => {
                   whileHover={{ scale: 1.015 }}
                   whileTap={{ scale: 0.985 }}
                   type="submit"
-                  className="w-full h-full min-h-[46px] sm:min-h-[50px] bg-primary hover:bg-primary-hover text-white font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-2 hover:shadow-lg rounded-md"
+                  className="w-full h-full min-h-[46px] sm:min-h-[50px] bg-primary hover:bg-primary-hover text-white font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-2 hover:shadow-lg rounded-md active:scale-98"
                 >
                   <Search size={16} className="text-gold" />
                   <span>Explore Properties</span>
@@ -356,15 +382,15 @@ export const HomePage: React.FC = () => {
             </form>
           </motion.div>
 
-          {/* Popular Searches (Desktop) */}
+          {/* Popular Searches */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="hidden md:flex mt-4 sm:mt-6 items-center justify-center gap-1.5 sm:gap-2 flex-wrap text-xs text-gray-500"
+            className="mt-3 sm:mt-5 flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap text-xs text-gray-500 px-2"
           >
-            <span className="font-semibold text-gray-700">Popular Searches:</span>
-            {['NIT Calicut Hostels', 'Girls PG Ramanattukara', 'Kochi Infopark Shared Room', 'Calicut Beach Flats'].map((term) => (
+            <span className="font-semibold text-gray-700">Popular:</span>
+            {['NIT Calicut', 'Girls PG', 'Infopark Kakkanad', 'BHK Flats'].map((term) => (
               <motion.button
                 key={term}
                 whileHover={{ y: -2, scale: 1.03 }}
