@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 97.3%; /* #F8F8F8 */
+    --foreground: 165 77% 14%; /* #083D2E text */
+    --card: 0 0% 100%;
+    --card-foreground: 165 77% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 165 77% 14%;
+    --primary: 165 77% 14%; /* #083D2E */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 41 62% 56%; /* #D4A64A */
+    --secondary-foreground: 0 0% 10%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 41 62% 94%;
+    --accent-foreground: 165 77% 14%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 165 77% 14%;
+    --radius: 6px;
+  }
+
+  /* Elegant, minimal rounded corners across UI elements */
+  button, input, select, textarea, .card, [role="button"], a, img, table, tr, th, td, badge {
+    border-radius: var(--radius);
+  }
+
+  .dark {
+    --background: 165 60% 6%;
+    --foreground: 0 0% 98%;
+    --card: 165 55% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 165 55% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 41 62% 56%;
+    --primary-foreground: 165 77% 14%;
+    --secondary: 165 30% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 165 40% 12%;
+    --muted-foreground: 165 20% 65%;
+    --accent: 165 40% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 165 40% 16%;
+    --input: 165 40% 16%;
+    --ring: 41 62% 56%;
+  }
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #1a2e26;
+  background-color: #F8F8F8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Tabular figures for prices & numerical metrics */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Micro-interaction & hover enhancement utilities */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-lift-sm {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift-sm:hover {
+  transform: translateY(-2px);
+}
+
+.img-zoom {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .img-zoom {
+  transform: scale(1.08);
+}
+
+/* Subtle, smooth floating animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 4s ease-in-out infinite;
+}
