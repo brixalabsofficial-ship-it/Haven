@@ -191,13 +191,13 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="space-y-20 pb-20">
-      {/* 1. HERO SECTION (CLEAN, MINIMAL & IMPACTFUL) */}
-      <section className="relative pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 bg-[#F8F8F8] overflow-hidden border-b border-gray-100">
+      {/* 1. HERO SECTION (FULL SCREEN ON MOBILE & CLEAN, MINIMAL & IMPACTFUL) */}
+      <section className="relative min-h-[calc(100vh-64px)] md:min-h-0 flex flex-col justify-center pt-8 pb-14 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 bg-[#F8F8F8] overflow-hidden border-b border-gray-100">
         {/* Subtle decorative background accents */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#083D2E_1px,transparent_1px)] [background-size:24px_24px]" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-          <div className="text-center max-w-3xl mx-auto space-y-5 mb-8 sm:mb-10 pt-2 sm:pt-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full my-auto">
+          <div className="text-center max-w-3xl mx-auto space-y-4 sm:space-y-5 mb-6 sm:mb-10">
             {/* Clean, Bold Heading with styled badge on mobile */}
             <motion.h1 
               initial={{ opacity: 0, y: 15 }}
@@ -205,14 +205,14 @@ export const HomePage: React.FC = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.15] flex flex-col items-center justify-center w-full"
             >
-              <div className="inline-flex items-center justify-center bg-primary text-white px-6 py-3.5 rounded-2xl shadow-md sm:bg-transparent sm:text-gray-900 sm:p-0 sm:shadow-none sm:rounded-none my-3 sm:my-0 text-center mx-auto">
+              <div className="inline-flex items-center justify-center bg-primary text-white px-6 py-3.5 rounded-2xl shadow-md sm:bg-transparent sm:text-gray-900 sm:p-0 sm:shadow-none sm:rounded-none my-2 sm:my-0 text-center mx-auto">
                 <span>Find Your{' '}</span>
                 <span className="text-gold sm:text-primary relative inline-block ml-2">
                   Next Home
                   <span className="hidden sm:block absolute bottom-1 left-0 w-full h-[3px] sm:h-[3.5px] bg-gold rounded-full" />
                 </span>
               </div>
-              <span className="block text-xl sm:text-3xl md:text-4xl font-semibold text-gray-700 mt-2 sm:mt-1.5 px-2 text-center">
+              <span className="block text-lg sm:text-3xl md:text-4xl font-semibold text-gray-700 mt-1 sm:mt-1.5 px-2 text-center">
                 Without Broker Exploitation.
               </span>
             </motion.h1>
