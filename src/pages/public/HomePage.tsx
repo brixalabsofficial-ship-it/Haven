@@ -42,6 +42,26 @@ export const HomePage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<PropertyCategory | 'All'>('All');
   const [maxBudget, setMaxBudget] = useState('15000');
 
+  // Hero Animated Icon Slider index
+  const [heroIconIndex, setHeroIconIndex] = useState(0);
+
+  const heroIconsList = [
+    { label: 'Student Hostels', category: 'Hostels', icon: Building2, tag: 'Meals & Wi-Fi', count: '12+ Hostels' },
+    { label: 'Executive PG Stays', category: 'PG Accommodation', icon: Bed, tag: 'Housekeeping Included', count: '18+ PGs' },
+    { label: 'Shared Rooms', category: 'Shared Rooms', icon: Users, tag: 'Budget Friendly', count: '8+ Stays' },
+    { label: 'Private Studio Rooms', category: 'Private Rooms', icon: Key, tag: 'Attached Bathrooms', count: '14+ Rooms' },
+    { label: '1, 2 & 3 BHK Flats', category: 'Flats', icon: Layers, tag: 'Zero Brokerage', count: '25+ Flats' },
+    { label: 'Gated Apartments', category: 'Apartments', icon: Building, tag: 'Security & Lift', count: '10+ High-rises' },
+    { label: 'Villas & Houses', category: 'Houses', icon: Home, tag: 'Private Living', count: '6+ Independent' },
+  ];
+
+  useEffect(() => {
+    const iconTimer = setInterval(() => {
+      setHeroIconIndex((prev) => (prev + 1) % heroIconsList.length);
+    }, 2400);
+    return () => clearInterval(iconTimer);
+  }, [heroIconsList.length]);
+
   const featuredProperties = properties.filter((p) => p.featured || p.viewCount > 150);
   const recentProperties = properties.slice(0, 6);
 
@@ -247,54 +267,64 @@ export const HomePage: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Animated Property Type Icons Floating Slider / Strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-            className="w-full overflow-hidden py-3 mb-3"
-          >
-            <div className="flex items-center justify-center gap-3 sm:gap-6 flex-wrap">
-              {[
-                { label: 'Hostels', icon: Building2, count: '12+' },
-                { label: 'PG Stays', icon: Bed, count: '18+' },
-                { label: 'Shared Rooms', icon: Users, count: '8+' },
-                { label: 'Private Rooms', icon: Key, count: '14+' },
-                { label: 'Flats & BHKs', icon: Layers, count: '25+' },
-                { label: 'Villas & Houses', icon: Home, count: '6+' },
-              ].map((item, idx) => {
-                const Icon = item.icon;
+          {/* Single-Item Animated Slider for Property Icons */}
+          <div className="w-full max-w-md mx-auto my-3 px-4">
+            <AnimatePresence mode="wait">
+              {(() => {
+                const current = heroIconsList[heroIconIndex];
+                const Icon = current.icon;
                 return (
                   <motion.div
-                    key={item.label}
-                    animate={{
-                      y: [0, idx % 2 === 0 ? -5 : 5, 0],
-                    }}
-                    transition={{
-                      duration: 3 + (idx % 3),
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
+                    key={current.label}
+                    initial={{ opacity: 0, y: 12, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -12, scale: 0.95 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
                     onClick={() => {
-                      setSelectedCategory(item.label.split(' ')[0] as any);
-                      navigate(`/explore?category=${encodeURIComponent(item.label.split(' ')[0])}`);
+                      setSelectedCategory(current.category as any);
+                      navigate(`/explore?category=${encodeURIComponent(current.category)}`);
                     }}
-                    className="flex items-center gap-2 bg-white/90 hover:bg-white border border-gray-200/90 hover:border-primary/40 px-3 py-1.5 rounded-full shadow-2xs cursor-pointer transition-all active:scale-95 group"
+                    className="flex items-center justify-between bg-white border border-gray-200/90 hover:border-primary/50 shadow-sm hover:shadow-md px-4 py-2.5 rounded-full cursor-pointer transition-all active:scale-98 group mx-auto"
                   >
-                    <div className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-gold transition-colors">
-                      <Icon size={13} />
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-gold transition-colors shrink-0 shadow-2xs">
+                        <Icon size={18} />
+                      </div>
+                      <div className="text-left">
+                        <span className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-primary transition-colors block leading-tight">
+                          {current.label}
+                        </span>
+                        <span className="text-[10px] text-gray-500 font-medium">
+                          {current.tag}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-xs font-semibold text-gray-700 group-hover:text-primary transition-colors">
-                      {item.label}
-                    </span>
-                    <span className="text-[10px] font-bold text-gold-dark bg-gold/15 px-1.5 py-0.2 rounded-full">
-                      {item.count}
-                    </span>
+
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full group-hover:bg-gold group-hover:text-primary transition-colors shrink-0">
+                        {current.count}
+                      </span>
+                      <ChevronRight size={14} className="text-gray-400 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                    </div>
                   </motion.div>
                 );
-              })}
+              })()}
+            </AnimatePresence>
+
+            {/* Slider Dots */}
+            <div className="flex items-center justify-center gap-1.5 mt-2">
+              {heroIconsList.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setHeroIconIndex(idx)}
+                  className={`h-1.5 rounded-full transition-all ${
+                    idx === heroIconIndex ? 'w-5 bg-primary' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Slide ${idx + 1}`}
+                />
+              ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Prominent Search Component (Visible on Both Mobile & Desktop) */}
           <motion.div 
