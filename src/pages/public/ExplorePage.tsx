@@ -654,8 +654,14 @@ export const ExplorePage: React.FC = () => {
 
       {/* Mobile Filters Drawer Modal */}
       {mobileFilterOpen && (
-        <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm md:hidden animate-in fade-in">
-          <div className="w-full max-h-[85vh] bg-white rounded-md overflow-y-auto p-6 pb-28 sm:pb-6 space-y-5 animate-in slide-in-from-bottom">
+        <div 
+          onClick={() => setMobileFilterOpen(false)}
+          className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm md:hidden animate-in fade-in"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-h-[85vh] bg-white rounded-md overflow-y-auto p-6 pb-28 sm:pb-6 space-y-5 animate-in slide-in-from-bottom"
+          >
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
               <h3 className="font-bold text-base text-gray-900">Filter Properties</h3>
               <button

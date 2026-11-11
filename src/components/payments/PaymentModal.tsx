@@ -100,8 +100,14 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-100 flex flex-col max-h-[85vh] sm:max-h-[90vh]">
+    <div 
+      onClick={handleResetModal}
+      className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200"
+    >
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-lg bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-100 flex flex-col max-h-[85vh] sm:max-h-[90vh]"
+      >
         {/* Header */}
         <div className="bg-primary text-white p-3.5 sm:p-5 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5">

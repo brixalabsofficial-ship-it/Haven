@@ -93,7 +93,7 @@ export const PropertyDetailsPage: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 space-y-6 sm:space-y-8">
       {/* Top breadcrumb & back */}
       <div className="flex items-center justify-between">
         <button
@@ -488,8 +488,14 @@ export const PropertyDetailsPage: React.FC = () => {
 
       {/* Full-screen Gallery Modal */}
       {isGalleryModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex flex-col p-4 backdrop-blur-md animate-in fade-in">
-          <div className="flex justify-between items-center text-white pb-4">
+        <div 
+          onClick={() => setIsGalleryModalOpen(false)}
+          className="fixed inset-0 z-[60] bg-black/95 flex flex-col p-4 backdrop-blur-md animate-in fade-in"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="flex justify-between items-center text-white pb-4"
+          >
             <span className="text-sm font-medium">
               Photo {activeImageIndex + 1} of {property.images.length}
             </span>
