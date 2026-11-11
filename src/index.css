@@ -60,6 +60,41 @@ body {
   background-color: #F8F8F8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent horizontal pull / bounce gestures and enable app-like touch handling */
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Allow text selection only on readable content */
+p, h1, h2, h3, h4, h5, h6, span, label, input, textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* 
+ * iOS Safari Auto-Zoom Prevention:
+ * iOS Safari automatically zooms in whenever an input/select/textarea has font-size < 16px.
+ * Setting font-size to 16px on mobile prevents all jarring auto-zoom behaviors.
+ */
+@media screen and (max-width: 767px) {
+  input, 
+  select, 
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"] {
+    font-size: 16px !important;
+  }
+}
+
+/* Prevent double-tap zoom on buttons and interactive controls */
+button, a, input, select, textarea, [role="button"] {
+  touch-action: manipulation;
 }
 
 /* Custom scrollbar */
