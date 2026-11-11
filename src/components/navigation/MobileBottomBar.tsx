@@ -64,7 +64,7 @@ export const MobileBottomBar: React.FC = () => {
 
       {/* List / Broker */}
       <Link
-        to={user?.role === 'broker' ? '/broker/listings/new' : '/broker/dashboard'}
+        to="/broker/dashboard"
         className={`flex-1 flex flex-col items-center gap-1 py-1.5 px-1 transition-all rounded-[8px] ${
           isActive('/broker')
             ? 'bg-gold/20 text-gold-dark font-bold shadow-xs'
@@ -72,7 +72,7 @@ export const MobileBottomBar: React.FC = () => {
         }`}
       >
         <Building2 size={19} className={isActive('/broker') ? 'text-gold-dark' : 'text-gray-500'} />
-        <span className="text-[10px] tracking-tight">List</span>
+        <span className="text-[10px] tracking-tight">Broker</span>
       </Link>
 
       {/* Account / Portal */}
