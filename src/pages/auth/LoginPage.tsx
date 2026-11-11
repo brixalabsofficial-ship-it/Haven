@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Mail, Lock, User, ArrowRight, ShieldCheck, Building2 } from 'lucide-react';
 import { Logo } from '../../components/common/Logo';
 import { useAuthStore } from '../../stores/authStore';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();

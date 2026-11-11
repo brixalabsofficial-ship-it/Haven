@@ -4,7 +4,7 @@ import { usePropertyStore } from '../../stores/propertyStore';
 import { usePaymentStore } from '../../stores/paymentStore';
 import { useFavouritesStore } from '../../stores/favouritesStore';
 import { imageStorage } from '../../services/indexedDbService';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 export const UserSettingsPage: React.FC = () => {
   const { resetToDefault: resetProperties } = usePropertyStore();

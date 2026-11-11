@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { User, Mail, Phone, MapPin, Save, ShieldCheck } from 'lucide-react';
 import { useAuthStore } from '../../stores/authStore';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 export const UserProfilePage: React.FC = () => {
   const { user, updateProfile } = useAuthStore();

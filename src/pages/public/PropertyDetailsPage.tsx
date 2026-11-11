@@ -26,7 +26,7 @@ import { useFavouritesStore } from '../../stores/favouritesStore';
 import { useAuthStore } from '../../stores/authStore';
 import { PaymentModal } from '../../components/payments/PaymentModal';
 import { formatINR, formatDate } from '../../utils';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 export const PropertyDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -88,7 +88,7 @@ export const PropertyDetailsPage: React.FC = () => {
     if (newState) {
       toast.success('Property saved to your favourites');
     } else {
-      toast.info('Removed from saved properties');
+      toast('Removed from saved properties');
     }
   };
 

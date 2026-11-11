@@ -4,7 +4,7 @@ import { User, Mail, Phone, Lock, Building2, ArrowRight } from 'lucide-react';
 import { Logo } from '../../components/common/Logo';
 import { useAuthStore } from '../../stores/authStore';
 import { UserRole } from '../../types';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 export const RegisterPage: React.FC = () => {
   const navigate = useNavigate();

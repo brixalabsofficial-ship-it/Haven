@@ -15,7 +15,7 @@ import {
   MapPinOff,
   Navigation
 } from 'lucide-react';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 import { PropertyCard } from '../../components/property/PropertyCard';
 import { usePropertyStore } from '../../stores/propertyStore';
 import {

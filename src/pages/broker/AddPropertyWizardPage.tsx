@@ -17,7 +17,7 @@ import { usePropertyStore } from '../../stores/propertyStore';
 import { useAuthStore } from '../../stores/authStore';
 import { PropertyCategory, OccupancyType, FurnishingStatus, GenderPreference } from '../../types';
 import { imageStorage } from '../../services/indexedDbService';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 export const AddPropertyWizardPage: React.FC = () => {
   const navigate = useNavigate();

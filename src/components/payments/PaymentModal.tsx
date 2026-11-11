@@ -15,7 +15,7 @@ import { Property, PaymentMethod, Transaction } from '../../types';
 import { formatINR } from '../../utils';
 import { usePaymentStore } from '../../stores/paymentStore';
 import { useAuthStore } from '../../stores/authStore';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 interface PaymentModalProps {
   property: Property;

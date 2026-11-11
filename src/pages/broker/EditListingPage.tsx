@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Save, ArrowLeft, Trash2, CheckCircle2 } from 'lucide-react';
 import { usePropertyStore } from '../../stores/propertyStore';
 import { PropertyCategory, ListingStatus, OccupancyType, FurnishingStatus, GenderPreference } from '../../types';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 export const EditListingPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

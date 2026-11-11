@@ -17,7 +17,7 @@ import {
 import { Logo } from '../common/Logo';
 import { useAuthStore } from '../../stores/authStore';
 import { useFavouritesStore } from '../../stores/favouritesStore';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

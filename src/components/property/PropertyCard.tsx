@@ -20,7 +20,7 @@ import { formatDistance } from '../../utils/geo';
 import { useFavouritesStore } from '../../stores/favouritesStore';
 import { usePaymentStore } from '../../stores/paymentStore';
 import { useAuthStore } from '../../stores/authStore';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 interface PropertyCardProps {
   property: Property;
@@ -45,14 +45,9 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
     e.stopPropagation();
     const newState = toggleSave(property.id);
     if (newState) {
-      toast.success('Property saved to your favourites', {
-        action: {
-          label: 'Undo',
-          onClick: () => toggleSave(property.id),
-        },
-      });
+      toast.success('Property saved to your favourites');
     } else {
-      toast.info('Removed from saved properties');
+      toast('Removed from saved properties');
     }
   };
 

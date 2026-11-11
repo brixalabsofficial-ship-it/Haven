@@ -17,7 +17,7 @@ import { useAuthStore } from '../../stores/authStore';
 import { usePropertyStore } from '../../stores/propertyStore';
 import { Property, ListingStatus } from '../../types';
 import { formatINR } from '../../utils';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 
 export const BrokerListingsPage: React.FC = () => {
   const { user } = useAuthStore();
