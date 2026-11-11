@@ -198,21 +198,19 @@ export const HomePage: React.FC = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full my-auto">
           <div className="text-center max-w-3xl mx-auto space-y-4 sm:space-y-5 mb-6 sm:mb-10">
-            {/* Clean, Bold Heading with styled badge on mobile */}
+            {/* Clean, Bold Heading */}
             <motion.h1 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.15] flex flex-col items-center justify-center w-full"
+              className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.15] text-center"
             >
-              <div className="inline-flex items-center justify-center bg-primary text-white px-6 py-3.5 rounded-2xl shadow-md sm:bg-transparent sm:text-gray-900 sm:p-0 sm:shadow-none sm:rounded-none my-2 sm:my-0 text-center mx-auto">
-                <span>Find Your{' '}</span>
-                <span className="text-gold sm:text-primary relative inline-block ml-2">
-                  Next Home
-                  <span className="hidden sm:block absolute bottom-1 left-0 w-full h-[3px] sm:h-[3.5px] bg-gold rounded-full" />
-                </span>
-              </div>
-              <span className="block text-lg sm:text-3xl md:text-4xl font-semibold text-gray-700 mt-1 sm:mt-1.5 px-2 text-center">
+              Find Your{' '}
+              <span className="text-primary relative inline-block">
+                Next Home
+                <span className="absolute bottom-1 left-0 w-full h-[3px] sm:h-[3.5px] bg-gold rounded-full" />
+              </span>
+              <span className="block text-xl sm:text-3xl md:text-4xl font-semibold text-gray-700 mt-2 sm:mt-2.5 px-2 text-center">
                 Without Broker Exploitation.
               </span>
             </motion.h1>
